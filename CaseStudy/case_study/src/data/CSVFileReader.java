@@ -20,7 +20,7 @@ public class CSVFileReader {
             for (String[] row : rows) {
                 if (row != null) {
                     User user = UserFactory.createUser(row[0], row[1], row[2], row[3], row[4], row[5], row[6],
-                            Double.parseDouble(row[7]), Boolean.parseBoolean(row[8]));
+                            Double.parseDouble(row[7]), Boolean.parseBoolean(row[8]),Boolean.parseBoolean(row[9]));
                     userList.addUser(user);
                 }
             }

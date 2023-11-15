@@ -17,7 +17,7 @@ public class CSVFileWriter {
                     for(User user : userList){
                         String[] record = {user.getUserID(), user.getUsername(),user.getPassword(),user.getFullName(),
                                 user.getEmail(), user.getPhoneNumber(),user.getUserType(),
-                                String.valueOf(user.getBalance()),String.valueOf(user.isActive())};
+                                String.valueOf(user.getBalance()),String.valueOf(user.isActive()),String.valueOf(user.isBan())};
                         csvWriter.writeNext(record);
                     }
 

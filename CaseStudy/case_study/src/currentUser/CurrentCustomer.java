@@ -1,6 +1,6 @@
-package user;
+package currentUser;
 
-public abstract class User {
+public class CurrentCustomer{
     private String userID;
     private String username;
     private String password;
@@ -12,31 +12,15 @@ public abstract class User {
     private boolean isActive;
     private boolean isBan;
 
-    public String getUserType() {
-        return userType;
+    private static CurrentCustomer instance;
+    private CurrentCustomer(){
+
     }
-
-    public void setUserType(String userType) {
-        this.userType = userType;
-    }
-
-
-
-    public User(String userID, String username, String password, String fullName, String email,
-                String phoneNumber,String userType, double balance, boolean isActive, boolean isBan) {
-        this.userID = userID;
-        this.username = username;
-        this.password = password;
-        this.fullName = fullName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.userType = userType;
-        this.balance = balance;
-        this.isActive = isActive;
-        this.isBan = isBan;
-    }
-
-    public User() {
+    public static CurrentCustomer getInstance() {
+        if (instance == null){
+            instance = new CurrentCustomer();
+        }
+        return instance;
     }
 
     public String getUserID() {
@@ -87,6 +71,14 @@ public abstract class User {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
     public double getBalance() {
         return balance;
     }
@@ -111,9 +103,10 @@ public abstract class User {
         isBan = ban;
     }
 
+
     @Override
     public String toString() {
-        return "{" +
+        return "CurrentCustomer{" +
                 "userID='" + userID + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
@@ -124,6 +117,7 @@ public abstract class User {
                 ", balance=" + balance +
                 ", isActive=" + isActive +
                 ", isBan=" + isBan +
+                ", instance=" + instance +
                 '}';
     }
 }

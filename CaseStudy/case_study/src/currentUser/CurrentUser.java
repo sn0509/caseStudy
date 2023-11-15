@@ -1,6 +1,6 @@
-package user;
+package currentUser;
 
-public abstract class User {
+public class CurrentUser {
     private String userID;
     private String username;
     private String password;
@@ -12,31 +12,15 @@ public abstract class User {
     private boolean isActive;
     private boolean isBan;
 
-    public String getUserType() {
-        return userType;
+    private static CurrentUser instance;
+    private CurrentUser(){
     }
 
-    public void setUserType(String userType) {
-        this.userType = userType;
-    }
-
-
-
-    public User(String userID, String username, String password, String fullName, String email,
-                String phoneNumber,String userType, double balance, boolean isActive, boolean isBan) {
-        this.userID = userID;
-        this.username = username;
-        this.password = password;
-        this.fullName = fullName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.userType = userType;
-        this.balance = balance;
-        this.isActive = isActive;
-        this.isBan = isBan;
-    }
-
-    public User() {
+    public static CurrentUser getInstance(){
+        if(instance == null){
+            instance = new CurrentUser();
+        }
+        return instance;
     }
 
     public String getUserID() {
@@ -87,6 +71,14 @@ public abstract class User {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
     public double getBalance() {
         return balance;
     }
@@ -113,10 +105,9 @@ public abstract class User {
 
     @Override
     public String toString() {
-        return "{" +
+        return "CurrentUser{" +
                 "userID='" + userID + '\'' +
                 ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
                 ", fullName='" + fullName + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
@@ -124,6 +115,7 @@ public abstract class User {
                 ", balance=" + balance +
                 ", isActive=" + isActive +
                 ", isBan=" + isBan +
+                ", instance=" + instance +
                 '}';
     }
 }
