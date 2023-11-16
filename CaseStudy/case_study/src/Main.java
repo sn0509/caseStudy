@@ -1,15 +1,11 @@
-import currentUser.SetCurrentUser;
-import register.Register;
+import userManager.register.RegisterService;
 
 
 public class Main {
     public static void main(String[] args) {
-        Register register = new Register();
-        register.register();
-
+        RegisterService registerService = new RegisterService();
+        registerService.register();
 //        LoginService loginService = new LoginService();
-//        loginService.authenticateUser();
-        SetCurrentUser setCurrentUser = new SetCurrentUser();
-        setCurrentUser.currentUser();
+//        loginService.getCurrenUser();
     }
 }

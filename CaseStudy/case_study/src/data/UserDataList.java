@@ -8,6 +8,7 @@ import java.util.List;
 public class UserDataList {
     private static UserDataList instance;
     private final List<User> userList;
+    private UserReaderData userReaderData;
 
     private UserDataList(){
         userList = new ArrayList<>();

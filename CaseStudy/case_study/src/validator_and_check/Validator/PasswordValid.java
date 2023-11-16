@@ -1,7 +1,5 @@
 package validator_and_check.Validator;
 
-import register.GetUserInput;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
